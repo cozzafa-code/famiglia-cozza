@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Famiglia Cozza</string>
+    <string name="title_activity_main">Famiglia Cozza</string>
+    <string name="package_name">com.cozza.famiglia</string>
+    <string name="custom_url_scheme">com.cozza.famiglia</string>
+</resources>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="it" style="background:#F5F3EE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Famiglia Cozza</title>
+    <style>html,body,#root{background:#F5F3EE!important;margin:0;padding:0}#root{min-height:100vh}</style>
+    <meta name="theme-color" content="#F5F3EE">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-startup-image" href="/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-1179x2556.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-828x1792.png" media="(device-width: 276px) and (device-height: 597px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="/splash-750x1334.png" media="(device-width: 250px) and (device-height: 444px) and (-webkit-device-pixel-ratio: 3)">
+    <script>
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(reg){reg.unregister()})});
+        if('caches' in window){caches.keys().then(function(n){n.forEach(function(k){caches.delete(k)})})}
+      }
+    </script>
+  </head>
+  <body style="background:#F5F3EE;margin:0">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
