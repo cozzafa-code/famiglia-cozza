@@ -1655,7 +1655,7 @@ export default function App() {
                 {editingBudget && <div style={{ display: "flex", gap: 4, marginBottom: 10, alignItems: "center" }}>
                   <span style={{ fontSize: 12, fontWeight: 700 }}>Limite:</span>
                   <span style={{ fontSize: 16, fontWeight: 900, color: pc }}>€</span>
-                  <input type="number" value={monthlyBudget} onChange={e => setMonthlyBudget(Math.max(0, parseInt(e.target.value) || 0))} style={inp({ width: 100, flex: "none", fontSize: 16, fontWeight: 900, fontFamily: F2, textAlign: "center", padding: "6px 8px" })} />
+                  <input type="number" defaultValue={monthlyBudget} onBlur={e => setMonthlyBudget(Math.max(0, parseInt(e.target.value) || 0))} onKeyDown={e => { if (e.key === "Enter") e.target.blur(); }} style={inp({ width: 100, flex: "none", fontSize: 16, fontWeight: 900, fontFamily: F2, textAlign: "center", padding: "6px 8px" })} />
                   <div style={{ display: "flex", gap: 3 }}>
                     {[2000, 3000, 4000, 5000, 6000].map(v => <button key={v} onClick={() => setMonthlyBudget(v)} className="ch" style={{ padding: "4px 8px", borderRadius: S.pill, border: monthlyBudget === v ? `2px solid ${pc}` : `1.5px solid ${T.border}`, background: monthlyBudget === v ? `${pc}08` : T.card, fontSize: 9, fontWeight: 800, color: monthlyBudget === v ? pc : T.muted, cursor: "pointer" }}>{v / 1000}k</button>)}
                   </div>
