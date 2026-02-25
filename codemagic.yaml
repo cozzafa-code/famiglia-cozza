@@ -12,13 +12,13 @@ workflows:
         script: npm install
       - name: Build web
         script: npx vite build
-      - name: Add iOS platform
+      - name: Add iOS platform and install pods
         script: |
           npx cap add ios || true
           npx cap sync ios
-      - name: Install CocoaPods
-        script: |
-          cd ios/App && pod install
+          if [ -f "ios/App/Podfile" ]; then
+            cd ios/App && pod install
+          fi
       - name: Generate certificate key
         script: |
           openssl genrsa -out /tmp/cert_key.pem 2048
@@ -36,7 +36,6 @@ workflows:
         script: xcode-project use-profiles
       - name: Build IPA
         script: |
-          find ios -name "*.xcworkspace" -o -name "*.xcodeproj" | head -5
           if [ -d "ios/App/App.xcworkspace" ]; then
             xcode-project build-ipa --workspace "ios/App/App.xcworkspace" --scheme "App"
           else
