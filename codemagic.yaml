@@ -17,7 +17,12 @@ workflows:
           npx cap add ios || true
           npx cap sync ios
       - name: Install CocoaPods
-        script: cd ios/App && pod install
+        script: |
+          if [ -f "ios/App/Podfile" ]; then
+            cd ios/App && pod install
+          else
+            echo "No Podfile found, skipping CocoaPods"
+          fi
       - name: Fetch signing files
         script: |
           app-store-connect fetch-signing-files "com.cozza.casa" --type ios_app_store --create
