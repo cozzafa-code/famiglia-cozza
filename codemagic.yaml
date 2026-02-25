@@ -25,7 +25,7 @@ workflows:
           fi
       - name: Fetch signing files
         script: |
-          app-store-connect fetch-signing-files "com.cozza.casa" --type ios_app_store --create
+          app-store-connect fetch-signing-files "com.cozza.casa" --type IOS_APP_STORE --create
       - name: Set up keychain
         script: keychain initialize
       - name: Add certs to keychain
