@@ -6,9 +6,6 @@ workflows:
     integrations:
       app_store_connect: Codemagic
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.cozza.casa
       node: 20
     scripts:
       - name: Install dependencies
@@ -26,6 +23,8 @@ workflows:
           app-store-connect fetch-signing-files "com.cozza.casa" --type ios_app_store --create
       - name: Set up keychain
         script: keychain initialize
+      - name: Add certs to keychain
+        script: keychain add-certificates
       - name: Use profiles
         script: xcode-project use-profiles
       - name: Build IPA
